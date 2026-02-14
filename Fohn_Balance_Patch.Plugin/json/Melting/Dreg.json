@@ -1,0 +1,42 @@
+{
+    "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+    "cards": [
+        {
+            "id": "StarterDreg",
+            "override": "replace",
+            "triggers": ["@DregExtinguishTrigger"]
+            
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "DregExtinguishTrigger",
+            "descriptions": {
+                "english": "<b>+5</b>[attack]."
+            },
+            "trigger": "on_death",
+            "effects": [
+                {
+                    "id": "@DregGainAttack"
+                }
+            ]
+        }
+    ],
+
+    "effects": [
+        {
+            "id": "DregGainAttack",
+            "name": "CardEffectAddTempCardUpgradeToUnits",
+            "target_mode": "self",
+            "target_team": "monsters",
+            "param_upgrade": "@DregAttackIncrease"
+        }
+    ],
+
+    "upgrades":[
+        {
+      "id": "DregAttackIncrease",
+      "bonus_damage": 5
+    }
+    ]
+}
